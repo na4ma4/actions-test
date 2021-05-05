@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+    - name: Clone repository another repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'netresj/empty'
+    - name: Environment
+      run: |
+        pwd
+        env
+
