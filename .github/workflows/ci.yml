@@ -17,8 +17,6 @@ jobs:
       with:
         repository: 'netresj/empty'
         path: 'empty'
-    - name: Environment
-      run: |
-        pwd
-        env
+    - name: List Files
+      run: ls -al
 
