@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: [self-hosted, ubuntu-latest]
     steps:
     - name: Clone repository
       uses: actions/checkout@v2
@@ -17,6 +17,8 @@ jobs:
       with:
         repository: 'netresj/empty'
         path: 'empty'
+    - name: Current working directory
+      run: pwd
     - name: List Files
       run: ls -al
 
