@@ -5,8 +5,8 @@ on:
   - pull_request
 
 jobs:
-  test:
-    runs-on: [self-hosted, ubuntu-latest]
+  self-hosted:
+    runs-on: self-hosted
     steps:
     - name: Clone repository
       uses: actions/checkout@v2
@@ -21,4 +21,25 @@ jobs:
       run: pwd
     - name: List Files
       run: ls -al
+    - name: Find Files
+      run: find . -type f
+  ubuntu-focal:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Clone repository
+      uses: actions/checkout@v2
+      with:
+        path: 'core'
+    - name: Clone repository another repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'netresj/empty'
+        path: 'empty'
+    - name: Current working directory
+      run: pwd
+    - name: List Files
+      run: ls -al
+    - name: Find Files
+      run: find . -type f
+
 
